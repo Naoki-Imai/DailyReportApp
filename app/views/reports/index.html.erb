@@ -1,0 +1,10 @@
+
+<h2>研修日報リスト</h2>
+<% @reports.each do |report| %>
+  <%= link_to "/reports/#{report.id}" do %>
+    <ul>
+      <li>実施日：<%= report.date %></li>
+      <li>場所：<%= report.place %></li>
+    </ul>
+  <% end %>
+<% end %>

@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'reports#index'
+  get "/reports/new" => "reports#new"
+  
+  post "/reports/create" => "reports#create"
+  
+  get "/reports/:id" => "reports#show"
 end

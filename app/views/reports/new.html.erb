@@ -1,0 +1,41 @@
+ 
+ <h1 class="subtitle">新規作成</h1>
+  <% @report.errors.full_messages.each do |message| %>
+    <ul>
+      <li><%= message %></li>
+    </ul>
+  <% end %>
+  <%= form_for @report, url: "/reports/create", method: :post do |f| %>
+    
+      <%= f.label :date, "実施日" , class: "label" %>
+      <%= f.date_select :date , class: 'input' %>
+    
+    
+    
+      <%= f.label :username, "実施者", class: "label"  %>
+      <%= f.text_field :username, class: 'input' %>
+    
+    
+    
+      <%= f.label :place, "場所", class: "label"  %>
+      <%= f.text_field :place, class: 'input' %>
+    
+    
+    
+      <%= f.label :teacher, "研修担当者", class: "label"  %>
+      <%= f.text_field :teacher, class: 'input' %>
+    
+    
+    
+      <%= f.label :target, "目標", class: "label"  %>
+      <%= f.text_area :target, class: 'input' %>
+    
+    
+    
+      <%= f.label :body, "研修内容", class: "label"  %>
+      <%= f.text_area :body, size: "20x10", class: 'input' %>
+    
+    <%= f.submit "作成", class: "button is-primary" %>
+  <% end %>
+   
+ 

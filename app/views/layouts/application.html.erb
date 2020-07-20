@@ -10,6 +10,40 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+    <header id="header">
+      
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-bland">
+          <%= link_to "/", class: "logo" do %>
+            LOGO
+          <% end %>
+
+          <div role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarList">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <div id="navbarList" class="navbar-menu">
+          <div class="navbar-start">
+            <%=link_to "トップ",  "/", class: "navbar-item" %>
+            <%=link_to  "日報作成", "/reports/new", class: "navbar-item" %>
+          </div>
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <!-- link_toにする予定（User実装したら） -->
+              <a class="button is-danger">Sign up</a>
+              <a class="button is-light">Log in</a>
+            </div>
+              
+          </div>
+        </div>
+      </nav>
+    <div class="container">
+      <%= yield %>
+      
+    </div>
   </body>
 </html>
