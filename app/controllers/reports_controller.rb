@@ -36,7 +36,9 @@ class ReportsController < ApplicationController
   end
   
   def destroy
-    
+    @report = Report.find_by(id: params[:id])
+    @report.destroy
+    redirect_to ("/")
   end
   
   private

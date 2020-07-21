@@ -5,4 +5,10 @@ Rails.application.routes.draw do
   post "/reports/create" => "reports#create"
   
   get "/reports/:id" => "reports#show"
+  
+  get "/reports/:id/edit" => "reports#edit"
+  
+  post "/reports/:id/update" => "reports#update"
+  
+  delete "/reports/:id/delete" => "reports#destroy"
 end

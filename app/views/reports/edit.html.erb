@@ -1,0 +1,28 @@
+<h1 class="subtitle">編集</h1>
+  <% @report.errors.full_messages.each do |message| %>
+    <ul>
+      <li><%= message %></li>
+    </ul>
+  <% end %>
+  <%= form_for @report, url: "/reports/#{@report.id}/update", method: :post do |f| %>
+    
+      <%= f.label :date, "実施日" , class: "label" %>
+      <%= f.date_select :date ,class: 'input' %>
+    
+      <%= f.label :username, "実施者", class: "label"  %>
+      <%= f.text_field :username, value: "#{@report.username}", class: 'input' %>
+  
+      <%= f.label :place, "場所", class: "label"  %>
+      <%= f.text_field :place, value: "#{@report.place}", class: 'input' %>
+  
+      <%= f.label :teacher, "研修担当者", class: "label"  %>
+      <%= f.text_field :teacher, value: "#{@report.teacher}", class: 'input' %>
+    
+      <%= f.label :target, "目標", class: "label"  %>
+      <%= f.text_area :target, value: "#{@report.target}", class: 'input' %>
+  
+      <%= f.label :body, "研修内容", class: "label"  %>
+      <%= f.text_area :body, value: "#{@report.body}", size: "20x10", class: 'input' %>
+    
+    <%= f.submit "修正", class: "button is-primary" %>
+  <% end %>
