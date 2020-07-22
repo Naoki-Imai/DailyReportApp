@@ -31,15 +31,24 @@
             <%=link_to  "日報作成", "/reports/new", class: "navbar-item" %>
           </div>
           <div class="navbar-end">
-            <div class="navbar-item">
-              <!-- link_toにする予定（User実装したら） -->
-              <a class="button is-danger">Sign up</a>
-              <a class="button is-light">Log in</a>
-            </div>
-              
+            <% if user_signed_in? %>
+              <%= link_to "ユーザ一覧", "/users", class: "navbar-item" %>
+              <%= link_to "ユーザ名：#{current_user.username}", "/users/#{current_user.id}", class: "navbar-item" %>
+              <%= link_to "Logout", "/users/sign_out", method: :delete, class: "navbar-item"  %>
+            <% else %>
+              <%= link_to "Signup", "/users/sign_up", class: "navbar-item" %>
+              <%= link_to "Login", "/users/sign_in", class: "navbar-item" %>
+            <% end %>
+
           </div>
         </div>
       </nav>
+      <% if flash[:notice] %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <% if flash[:alert] %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
     </header>
     <div class="container">
       <%= yield %>

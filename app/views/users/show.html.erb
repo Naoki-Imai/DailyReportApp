@@ -1,0 +1,8 @@
+<% @user.reports.each do |report| %>
+  <%= link_to "/reports/#{report.id}" do %>
+    <ul>
+      <li><%= report.date %></li>
+      <li><%= report.place %></li>
+    </ul>
+  <% end %>
+<% end %>

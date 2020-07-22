@@ -7,6 +7,7 @@
   <li>場所：<%= @report.place %></li>
   <li>業務内容：<%= @report.body %></li>
 </ul>
-<%= link_to "修正", "/reports/#{@report.id}/edit", class: "button is-primary" %> 
-<%= link_to "削除", "/reports/#{@report.id}/delete", method: :delete, class: "button is-danger" %>
-
+<% if @report.user_id == current_user.id %>
+  <%= link_to "修正", "/reports/#{@report.id}/edit", class: "button is-primary" %> 
+  <%= link_to "削除", "/reports/#{@report.id}/delete", method: :delete, class: "button is-danger" %>
+<% end %>
