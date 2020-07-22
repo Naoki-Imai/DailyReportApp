@@ -65,5 +65,5 @@ gem "jquery-rails"
 gem "jquery-ui-rails"
 gem "bulma-rails"
 gem 'devise'
-gem 'carrierwave'
-gem 'rmagick'
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
