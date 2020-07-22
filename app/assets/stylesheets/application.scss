@@ -14,3 +14,31 @@
  *= require_self
  */
 @import "bulma";
+#header  {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+  
+  .navbar {
+    background-color: #f9f9fa;
+    .navbar-item {
+      color:#898989;
+    }
+  }
+  .notice {
+    color:#006fbe;
+    font-weight: bold;
+    text-align: center;
+  }
+  .alert {
+    color:#d2202f;
+    font-weight: bold;
+    text-align: center;
+  }
+}
+.container {
+  margin-top: 100px;
+}
+  

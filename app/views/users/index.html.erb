@@ -1,6 +1,8 @@
 <% @users.each do |user| %>
   <%= link_to "/users/#{user.id}" do %>
-    <p><%= user.username %></p>
+  <div class="userList">
+    <p class="userName"><%= user.username %></p>
+  </div>
   <% end %>
   <% if user.id == current_user.id %>
     <%= link_to "編集", "/users/#{user.id}/edit" %>

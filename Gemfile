@@ -65,3 +65,5 @@ gem "jquery-rails"
 gem "jquery-ui-rails"
 gem "bulma-rails"
 gem 'devise'
+gem 'carrierwave'
+gem 'rmagick'
