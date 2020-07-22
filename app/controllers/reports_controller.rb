@@ -1,4 +1,5 @@
 class ReportsController < ApplicationController
+
   def index
     @reports = Report.all
   end
@@ -9,6 +10,8 @@ class ReportsController < ApplicationController
   
   def create
     @report = Report.new(reports_params)
+    @report.user_id = current_user.id
+    @report.username = current_user.username
     if @report.save
       redirect_to ("/")
     else
@@ -45,4 +48,5 @@ class ReportsController < ApplicationController
   def reports_params
     params.require(:report).permit(:username, :teacher, :place, :body, :target, :date)
   end
+
 end

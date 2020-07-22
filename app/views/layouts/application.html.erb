@@ -33,14 +33,23 @@
           <div class="navbar-end">
             <div class="navbar-item">
               <!-- link_toにする予定（User実装したら） -->
-              <a class="button is-danger">Sign up</a>
-              <a class="button is-light">Log in</a>
+              <% if user_signed_in? %>
+                <%= link_to "/users/#{current_user.id}", class: "button is-success" do %>
+                  <p><%= current_user.username %></p>
+                <% end %>
+                <%= link_to "Logout", "/users/sign_out", method: :delete, class: "button is-danger" %>
+              <% else %>
+                <%= link_to "SignUp", "/users/sign_up", class: "button is-primary" %>
+                <%= link_to "Login", "/users/sign_in", class: "button is-primary" %>
+              <% end %>
             </div>
               
           </div>
         </div>
       </nav>
     </header>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <div class="container">
       <%= yield %>
       
